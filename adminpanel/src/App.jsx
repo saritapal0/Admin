@@ -1,4 +1,4 @@
-import { BrowserRouter,  Routes,Route } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import Users from './pages/Users';
 import Deshboard from './pages/Deshboard';
 import Wallet from './pages/Wallet'
@@ -10,28 +10,25 @@ import Tasks from './pages/Tasks'
 import Logout from './pages/Logout';
 import FullLayout from './Layouts/FullLayouts';
 
-const App = () => {
-  return (
-   
-      <BrowserRouter>
-       <Routes>
-          <Route path='/' element={<FullLayout/>}>
-          <Route path='/deshboard' element={<Deshboard/>}/>
-          <Route path='/users' element={<Users/>}/>
-          <Route path='/wallet' element={<Wallet/>}/>
-          <Route path='/coupon' element={<Coupon/>}/>
-          <Route path='/addon' element={<Addon/>}/>
-          <Route path='/news' element={<News/>}/> 
-          <Route path='/settings' element={<Settings/>}/>
-          <Route path='/tasks' element={<Tasks/>}/>
-          </Route>
-          <Route path='/logout' element={<Logout/>}/>
-          
-          
-        </Routes>
-      </BrowserRouter>
-    
-  );
-};
+const App = createBrowserRouter(createRoutesFromElements(
+
+  <>
+    <Route path='/' element={<FullLayout />}>
+      <Route path='/deshboard' element={<Deshboard />} />
+      <Route path='/users' element={<Users />} />
+      <Route path='/wallet' element={<Wallet />} />
+      <Route path='/coupon' element={<Coupon />} />
+      <Route path='/addon' element={<Addon />} />
+      <Route path='/news' element={<News />} />
+      <Route path='/settings' element={<Settings />} />
+      <Route path='/tasks' element={<Tasks />} />
+    </Route>
+    <Route path='/logout' element={<Logout />} />
+
+
+  </>
+
+)
+);
 
 export default App;

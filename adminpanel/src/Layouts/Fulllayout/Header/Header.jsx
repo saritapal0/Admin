@@ -1,233 +1,272 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
+import React from "react";
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Menu,
+  MenuItem,
+  Button,
+  Avatar,
+  Divider,
+  ListItemIcon,
+} from "@mui/material";
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+import userimg from "../../../assets/images/users/user.jpg";
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
-
-export default function PrimarySearchAppBar() {
+const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
+  const handleClose = () => {
     setAnchorEl(null);
-    handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
+  // 4
+  const [anchorEl4, setAnchorEl4] = React.useState(null);
+
+  const handleClick4 = (event) => {
+    setAnchorEl4(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
+  const handleClose4 = () => {
+    setAnchorEl4(null);
+  };
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
+  // 5
+  const [anchorEl5, setAnchorEl5] = React.useState(null);
+
+  const handleClick5 = (event) => {
+    setAnchorEl5(event.currentTarget);
+  };
+
+  const handleClose5 = () => {
+    setAnchorEl5(null);
+  };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+    <AppBar sx={props.sx} elevation={0} className={props.customClass}>
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="menu"
+          onClick={props.toggleMobileSidebar}
+          sx={{
+            display: {
+              lg: "none",
+              xs: "inline",
+            },
+          }}
+        >
+          <MenuOutlinedIcon width="20" height="20" />
+        </IconButton>
+        <IconButton
+          aria-label="menu"
+          color="inherit"
+          aria-controls="dd-menu"
+          aria-haspopup="true"
+          onClick={handleClick5}
+        >
+          <AddToPhotosOutlinedIcon />
+        </IconButton>
+        <Menu
+          id="dd-menu"
+          anchorEl={anchorEl5}
+          keepMounted
+          open={Boolean(anchorEl5)}
+          onClose={handleClose5}
+          anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+          transformOrigin={{ horizontal: "left", vertical: "top" }}
+          sx={{
+            "& .MuiMenu-paper": {
+              width: "250px",
+              right: 0,
+              top: "70px !important",
+            },
+          }}
+        >
+          <MenuItem onClick={handleClose5}>
+            <Avatar
+              sx={{
+                width: "35px",
+                height: "35px",
+              }}
             />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
+            <Box
+              sx={{
+                ml: 2,
+              }}
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
+              New account
+            </Box>
+          </MenuItem>
+          <Divider />
+          <MenuItem onClick={handleClose5}>
+            <Avatar
+              sx={{
+                width: "35px",
+                height: "35px",
+              }}
+            />
+            <Box
+              sx={{
+                ml: 2,
+              }}
             >
-              <AccountCircle />
-            </IconButton>
+              New Page
+            </Box>
+          </MenuItem>
+          <MenuItem onClick={handleClose5}>
+            <Avatar
+              sx={{
+                width: "35px",
+                height: "35px",
+              }}
+            />
+            <Box
+              sx={{
+                ml: 2,
+              }}
+            >
+              New Component
+            </Box>
+          </MenuItem>
+        </Menu>
+        <Box flexGrow={1} />
+
+        {/* ------------------------------------------- */}
+        {/* Notifications Dropdown */}
+        {/* ------------------------------------------- */}
+        <IconButton
+          aria-label="menu"
+          color="inherit"
+          aria-controls="notification-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <NotificationsNoneOutlinedIcon width="20" height="20" />
+        </IconButton>
+        <Menu
+          id="notification-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          sx={{
+            "& .MuiMenu-paper": {
+              width: "200px",
+              right: 0,
+              top: "70px !important",
+            },
+          }}
+        >
+          <MenuItem onClick={handleClose}>Action</MenuItem>
+          <MenuItem onClick={handleClose}>Action Else</MenuItem>
+          <MenuItem onClick={handleClose}>Another Action</MenuItem>
+        </Menu>
+        {/* ------------------------------------------- */}
+        {/* End Notifications Dropdown */}
+        {/* ------------------------------------------- */}
+        {/* ------------------------------------------- */}
+        {/* Profile Dropdown */}
+        {/* ------------------------------------------- */}
+        <Box
+          sx={{
+            width: "1px",
+            backgroundColor: "rgba(0,0,0,0.1)",
+            height: "25px",
+            ml: 1,
+          }}
+        ></Box>
+        <Button
+          aria-label="menu"
+          color="inherit"
+          aria-controls="profile-menu"
+          aria-haspopup="true"
+          onClick={handleClick4}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Avatar
+              src={userimg}
+              alt={userimg}
+              sx={{
+                width: "30px",
+                height: "30px",
+              }}
+            />
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
+        </Button>
+        <Menu
+          id="profile-menu"
+          anchorEl={anchorEl4}
+          keepMounted
+          open={Boolean(anchorEl4)}
+          onClose={handleClose4}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          sx={{
+            "& .MuiMenu-paper": {
+              width: "250px",
+              right: 0,
+              top: "70px !important",
+            },
+          }}
+        >
+          <MenuItem onClick={handleClose4}>
+            <Avatar
+              sx={{
+                width: "35px",
+                height: "35px",
+              }}
+            />
+            <Box
+              sx={{
+                ml: 2,
+              }}
             >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+              My account
+            </Box>
+          </MenuItem>
+          <Divider />
+          <MenuItem onClick={handleClose4}>
+            <ListItemIcon>
+              <PersonAddOutlinedIcon fontSize="small" />
+            </ListItemIcon>
+            Add another account
+          </MenuItem>
+          <MenuItem onClick={handleClose4}>
+            <ListItemIcon>
+              <SettingsOutlinedIcon fontSize="small" />
+            </ListItemIcon>
+            Settings
+          </MenuItem>
+          <MenuItem onClick={handleClose4}>
+            <ListItemIcon>
+              <LogoutOutlinedIcon fontSize="small" />
+            </ListItemIcon>
+            Logout
+          </MenuItem>
+        </Menu>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
+
+export default Header;
