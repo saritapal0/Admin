@@ -4,8 +4,8 @@ import ExTable from "../Forms/Deshboard/ExTable";
 
 const BasicTable = () => {
   return (
-    <Box sx={{ margin: '20px' }}> 
-      <Card sx={{ borderRadius: 8 }} variant="outlined">
+    <Box sx={{ marginRight:'40px' }}> 
+      <Card sx={{ borderRadius: 8, width: '650px', height: '100%',marginTop:'40px' }} variant="outlined">
         <CardContent>
           <Typography variant="h6">Product Performance</Typography>
           <Box
@@ -16,7 +16,7 @@ const BasicTable = () => {
               },
             }}
           >
-          <ExTable />
+            <ExTable />
           </Box>
         </CardContent>
       </Card>

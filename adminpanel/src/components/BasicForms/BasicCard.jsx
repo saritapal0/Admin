@@ -7,10 +7,10 @@ import { Typography } from '@mui/material';
 
 export default function BasicCard() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
-          <Card sx={{ width: 250, height: 130, borderRadius: 4 }}>
+    <Box sx={{ flexGrow: 1, marginRight: '50px'}} >
+      <Grid container spacing={4} justifyContent="space-between">
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+          <Card sx={{ width: 230, height: 120, borderRadius: 4 ,marginRight:30 }}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                 Total Amount
@@ -22,8 +22,8 @@ export default function BasicCard() {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={3} lg={3} xl={4}>
-          <Card sx={{ width: 250, height: 130, borderRadius: 4 }}>
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+          <Card sx={{ width: 230, height: 120, borderRadius: 4, marginRight:30}}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                 Total Withdrawal
@@ -35,8 +35,8 @@ export default function BasicCard() {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
-          <Card sx={{width: 250, height: 130, borderRadius: 4 }}>
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+          <Card sx={{width: 230, height: 120, borderRadius: 4 ,marginRight:30}}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                 Total Recharge
@@ -47,8 +47,8 @@ export default function BasicCard() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
-          <Card sx={{width: 250, height: 130, borderRadius: 4 }}>
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
+          <Card sx={{width: 230, height: 120, borderRadius: 4 ,marginRight:30}}>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                 Total Users

@@ -8,6 +8,7 @@ import News from './pages/News'
 import Settings from './pages/Settings'
 import Tasks from './pages/Tasks'
 import Logout from './pages/Logout';
+import Login from './pages/Login'
 import FullLayout from './Layouts/FullLayouts';
 
 const App = createBrowserRouter(createRoutesFromElements(
@@ -23,6 +24,7 @@ const App = createBrowserRouter(createRoutesFromElements(
       <Route path='/settings' element={<Settings />} />
       <Route path='/tasks' element={<Tasks />} />
     </Route>
+    <Route path='/login' element={<Login />} />
     <Route path='/logout' element={<Logout />} />
 
 

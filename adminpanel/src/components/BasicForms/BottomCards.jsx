@@ -6,15 +6,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { Box } from '@mui/material';
 import image1 from "../../assets/images/backgrounds/u2.jpg"
 import image2 from "../../assets/images/backgrounds/u3.jpg"
 import image3 from "../../assets/images/backgrounds/u4.jpg"
 
 export default function MediaCard() {
   return (
+    <Box sx={{ marginRight:'25px' }}>
     <Grid container spacing={3}> 
       <Grid item xs={12} sm={6} md={4} lg={4}>
-        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4 }}>
+        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4, marginTop:"20px" }}>
           <CardMedia
             component="img" // Use component="img" for CardMedia to specify image
             height="auto"
@@ -37,7 +39,7 @@ export default function MediaCard() {
       </Grid>
 
       <Grid item xs={12} sm={6} md={4} lg={4}> {/* Adjust the size as needed */}
-        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4 }}>
+        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4 , marginTop:"20px" }}>
           <CardMedia
             component="img" // Use component="img" for CardMedia to specify image
             height="auto"
@@ -60,7 +62,7 @@ export default function MediaCard() {
       </Grid>
 
       <Grid item xs={12} sm={6} md={4} lg={4}> {/* Adjust the size as needed */}
-        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4 }}>
+        <Card sx={{ width: 'auto', height: "420px", maxHeight: "420px", borderRadius: 4, marginTop:"20px"}}>
           <CardMedia
             component="img" // Use component="img" for CardMedia to specify image
             height="auto"
@@ -82,5 +84,6 @@ export default function MediaCard() {
         </Card>
       </Grid>
     </Grid>
+    </Box>
   );
 }

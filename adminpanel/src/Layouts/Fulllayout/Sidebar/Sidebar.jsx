@@ -20,7 +20,7 @@ import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {useNavigate } from 'react-router-dom';
 
-const drawerWidth = 220;
+const drawerWidth = 240;
 
 function Deshboard(props) {
   const { window } = props;
